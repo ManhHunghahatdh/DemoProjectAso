@@ -1,0 +1,78 @@
+﻿
+@model QLDuAn.Web.Models.ApplicationUserViewModel
+@{
+    ViewBag.Title = "thông tin các nhân";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+<h5 class="page-title">
+    Thông tin cá nhân
+</h5>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home">
+        <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="@Model.Image" class="img-circle img-responsive"> </div>
+        <div class="col-md-9 col-lg-9">
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>chúc vụ</td>
+                        <td>@Model.Function</td>
+                    </tr>
+                    <tr>
+                        <td>Họ và tên:</td>
+                        <td>@Model.FullName</td>
+                    </tr>
+                    <tr>
+                        <td>Ngày Sinh</td>
+                        <td>@Model.Birthday.ToShortDateString()</td>
+                    </tr>
+
+                    <tr>
+                    <tr>
+                        <td>Giới tính</td>
+                        @{
+                            if (Model.Sex == true)
+                            {
+                                <td>Nam</td>
+                            }
+                            else
+                            {
+                                <td>Nữ</td>
+
+                            }
+                        }
+
+                    </tr>
+                    <tr>
+                        <td>Địa chỉ</td>
+                        <td>@Model.Adress </td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:info@support.com">@Model.Email</a></td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>
+                            @Model.PhoneNumber (Mobile)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>giới thiệu bản thân</td>
+                        <td>
+                            @Model.Bio
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <a href="cap-nhat-thong-tin.html" class="btn btn-info">Cập nhật</a>
+            <a href="us/home" class="btn btn-default">trở về</a>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+

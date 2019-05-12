@@ -1,0 +1,13 @@
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\bin\Debug\QLDuAn.Test.dll.config
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\bin\Debug\QLDuAn.Test.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\bin\Debug\QLDuAn.Test.pdb
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\obj\Debug\QLDuAn.Test.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\obj\Debug\QLDuAn.Test.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\obj\Debug\QLDuAn.Test.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\obj\Debug\QLDuAn.Test.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Test\obj\Debug\QLDuAn.Test.pdb

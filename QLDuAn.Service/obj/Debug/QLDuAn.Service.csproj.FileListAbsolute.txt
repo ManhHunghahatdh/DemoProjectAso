@@ -1,0 +1,2 @@
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Service\obj\Debug\QLDuAn.Service.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Service\obj\Debug\QLDuAn.Service.csproj.CoreCompileInputs.cache

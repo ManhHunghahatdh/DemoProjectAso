@@ -1,0 +1,64 @@
+﻿@model QLDuAn.Web.Models.DuAnViewModel
+@{
+    ViewBag.Title = "Hệ thống quản lý dự án";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<h5 class="page-title">
+    Hạng Mục Công Việc
+</h5>
+<div class="box" id="search_box">
+    <div class="box-header">
+        <h4 class="box-title"> Chon Dự Án</h4>
+    </div>
+    <div class="box-body">
+        @Html.DropDownListFor(model => model.ID, null, new { @class = "congviec" })
+    </div>
+</div>
+<div class="box">
+    <div class="box-header">
+        <p class="box-title"> Tất cả các công việc </p>
+    </div>
+    <hr />
+    <div class="box-body no-padding" id="table-hangmucda"> </div>
+</div>
+
+@section Income{
+    <div id="bxh" class="col-xs-12 bottom-border">
+        <h4 style="font-weight: bold"> Doanh thu theo dự án</h4>
+    </div>
+
+    <div class="card">
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#active" aria-controls="active" role="tab" data-toggle="tab">trực tiếp</a></li>
+            <li role="presentation"><a href="#gt" aria-controls="gt" role="tab" data-toggle="tab"> gián tiếp</a></li>
+
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="active">
+                <table class="table table-bordered" id="bxh_direct">
+                    <thead>
+                        <tr>
+                            <th>Họ Tên</th>
+                            <th>Thu nhập</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content"></tbody>
+                </table>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="gt">
+                <table class="table table-bordered" id="bxh_indirect">
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>thu nhập</th>
+                        </tr>
+                    </thead>
+                    <tbody id="content"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+

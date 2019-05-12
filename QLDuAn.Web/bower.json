@@ -1,0 +1,27 @@
+{
+	"name": "ASP.NET",
+	"private": true,
+  "dependencies": {
+    "bootstrap": "*",
+    "angular": "*",
+    "angular-ui-router": "*",
+    "jquery": "*",
+    "toastr": "*",
+    "ngBootbox": "*",
+    "fastclick": "*",
+    "jquery.slimscroll": "*",
+    "angular-material": "*",
+    "ui-bootstrap": "*",
+    "iCheck": "*",
+    "angular-local-storage": "*",
+    "angular-loading-bar": "*",
+    "checklist-model": "*",
+    "angular-chart.js": "*",
+    "angular-ui-select": "*",
+    "angular-sanitize": "*",
+    "angular-bootstrap": "*",
+    "jquery-ui": "*"
+  }
+}
+
+

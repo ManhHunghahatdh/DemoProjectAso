@@ -1,0 +1,110 @@
+﻿<md-dialog>
+    <form role="form" method="post" ng-submit="AddApplicationUser()" name="frmFormAddUser" novalidate>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Thêm thành viên</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Tên đầy đủ</label>
+                        <input type="text" class="form-control" ng-model="ThanhVien.FullName" name="fullname" required>
+                        <span ng-show="frmFormAddUser.fullname.$invalid" class="has-error"> nhập tên đầy đủ</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Tên đăng nhập</label>
+                        <input type="text" class="form-control" ng-model="ThanhVien.UserName" name="usename" required>
+                        <span ng-show="frmFormAddUser.usename.$invalid" class="has-error"> nhập tên đăng nhập</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input type="text" class="form-control" ng-model="ThanhVien.Password" name="password" required>
+                        <span ng-show="frmFormAddUser.password.$invalid" class="has-error"> nhập mật khẩu</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ Mail</label>
+                        <input type="email" class="form-control" ng-model="ThanhVien.Email" name="email" required>
+                        <span ng-show="frmFormAddUser.email.$invalid" class="has-error"> nhập địa chỉ mail</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Mô tả bản Thân</label>
+                        <textarea class="form-control" rows="3" ng-model="ThanhVien.Bio" name="bio"></textarea>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Ngày sinh</label>
+                        <input type="date" class="form-control" name="ngaysinh" ng-model="ThanhVien.Birthday" required>
+                        <span ng-show="frmFormAddUser.ngaysinh.$invalid" class="has-error"> nhập ngày sinh</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Ngày bắt đầu làm việc</label>
+                        <input type="date" class="form-control" ng-model="ThanhVien.Startdate" name="start" required>
+                        <span ng-show="frmFormAddUser.start.$invalid" class="has-error"> nhập ngày bắt đầu làm việc</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Chức Vụ</label>
+                        <input type="text" class="form-control" ng-model="ThanhVien.Function">
+                    </div>
+                    <label>Hình ảnh</label>
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="chooseImage()">Chọn ảnh</button>
+                        </div>
+                        <!-- /btn-group -->
+                        <input type="text" class="form-control" ng-model="ThanhVien.Image">
+                    </div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input type="text" class="form-control" ng-model="ThanhVien.Adress" name="diachi" required>
+                        <span ng-show="frmFormAddUser.diachi.$invalid" class="has-error"> nhập địa chỉ</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sodienthoai">Số diện thoại</label>
+                        <input type="text" class="form-control" ng-model="ThanhVien.PhoneNumber" name="sdt" required>
+                        <span ng-show="frmFormAddUser.sdt.$invalid" class="has-error"> nhập số điện thoại</span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-2">
+                    <label>giới tính</label>
+                    <div class="form-group">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="ThanhVien.Sex" ng-value="true">
+                                Nam
+                            </label>
+                            <label>
+                                <input type="radio" ng-model="ThanhVien.Sex" ng-value="false">
+                                Nữ
+                            </label>
+                        </div>
+                    </div>
+                    <label>Nhóm người dùng </label>
+                    <div class="form-group">
+                        <label ng-repeat="group in groups">
+                            <input type="checkbox" checklist-model="ThanhVien.Groups" checklist-value="group"> {{group.Name}}
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <button type="submit" class="btn btn-info btn-flat">Tạo Thành viên</button>
+            <span flex></span>
+            <button type="reset" class="btn btn-default btn-flat">xóa sạch</button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+

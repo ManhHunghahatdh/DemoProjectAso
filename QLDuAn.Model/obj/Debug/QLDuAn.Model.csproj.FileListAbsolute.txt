@@ -1,0 +1,16 @@
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\QLDuAn.Model.dll.config
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\QLDuAn.Model.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\QLDuAn.Model.pdb
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\EntityFramework.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\EntityFramework.xml
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\obj\Debug\QLDuAn.Model.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\obj\Debug\QLDuAn.Model.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\obj\Debug\QLDuAn.Model.csproj.CopyComplete
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\obj\Debug\QLDuAn.Model.dll
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Model\obj\Debug\QLDuAn.Model.pdb

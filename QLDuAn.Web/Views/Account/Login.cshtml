@@ -1,0 +1,31 @@
+﻿@model QLDuAn.Web.Models.LoginViewModel
+@{
+    ViewBag.Title = "Đăng Nhập";
+    Layout = "~/Views/Shared/_RootLayout.cshtml";
+}
+
+<body id="body_layout">
+    <div class="col-lg-4 col-lg-offset-4" style="background:#fff ; margin-top:60px;box-shadow:0 1px 1px rgba(0,0,0,.1) ; border-radius:5px;padding:20px 20px;" id="login_admin">
+        <h4 id="login-title"><i class="fa fa-user" aria-hidden="true"></i>  Đăng Nhập</h4>
+        @using (Html.BeginForm("Login", "Account", new { returnUrl = @ViewBag.ReturnUrl }, FormMethod.Post))
+        {
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Tên tài khoản</label>
+                    @Html.TextBoxFor(model => model.userName, new { @class = "form-control", id = "login_input" })
+                </div>
+                <div class="form-group">
+                    <label>Mật Khẩu</label>
+                    @Html.PasswordFor(model => model.password, new { @class = "form-control", id = "login_input" })
+                </div>
+                <div class="form-group">
+                    <label>
+                        @Html.CheckBoxFor(model => model.remember) Ghi nhớ
+                    </label>
+                    <button type="submit" class="btn btn-info btn-flat pull-right btn-sm" id="btn_submit">Đăng nhập</button>
+                </div>
+            </div>
+            
+        }
+    </div>
+</body>

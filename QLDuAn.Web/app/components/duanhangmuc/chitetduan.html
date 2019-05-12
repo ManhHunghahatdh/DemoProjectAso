@@ -1,0 +1,493 @@
+﻿
+<section class="content">
+    <md-tabs md-dynamic-height="" md-border-bottom="">
+        <md-tab label="hạng mục dự án trực tiếp" ng-click="displayGT(0)">
+            <md-content class="md-padding">
+                <div id="duan" class="collapse">
+                    <div class="box box-solid">
+                        <div class="box-body clearfix">
+                            <div class="col-md-7">
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <b>Tên Dự án:</b> <a class="pull-right">{{ThongTinDuAn.TenDuAn}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Tên khách hàng</b> <a class="pull-right">{{ThongTinDuAn.KhachHang.TenKhach}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Giá trị hợp đồng trước VAT</b> <a class="pull-right">{{ThongTinDuAn.GiaTriHopDong | number}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Số ngày thực hiện theo HĐ:</b> <a class="pull-right">{{ThongTinDuAn.SoNgayThucHien}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Số ngày thực hiện thực tế</b> <a class="pull-right">..</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Số HĐ</b> <a class="pull-right">{{ThongTinDuAn.SoHopDong}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Ngày ký HĐ</b> <a class="pull-right">{{ThongTinDuAn.NgayKy | date:'dd/MM/yyyy'}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <b>Loại công trình</b> <a class="pull-right"> {{ThongTinDuAn.LoaiCongTrinh}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Tỷ lệ theo DT</b> <a class="pull-right">{{ThongTinDuAn.TyLeTheoDT}} %</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Lương Thuê ngoài</b> <a class="pull-right" ng-if="ThongTinDuAn.LuongThueNgoai != null">{{ThongTinDuAn.LuongThueNgoai | number}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Tổng chi lương QL</b> <a class="pull-right">{{ThongTinDuAn.TongChiQL}} %</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Lương trực tiếp Qtt</b> <a class="pull-right">{{ThongTinDuAn.LuongTTQtt}} %</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Lương DP Qdp</b> <a class="pull-right">{{ThongTinDuAn.LuongDPQdp}} %</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-2">
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <a class="text-center">...</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a class="text-center">{{I = (ThongTinDuAn.GiaTriHopDong * ThongTinDuAn.TyLeTheoDT)/100 | number}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a class="text-center">...</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>QL</b> <a class="pull-right">{{ QL1= I - ThongTinDuAn.LuongThueNgoai | number}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>QL</b> <a class="pull-right">{{ QL2 = (QL1 * ThongTinDuAn.LuongTTQtt)/100 | number}} </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>QL</b> <a class="pull-right">{{Total =  (QL1* ThongTinDuAn.LuongDPQdp)/100 | number}}</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                </div>
+                <section class="invoice">
+                    <!-- title row -->
+                    <div class="row invoice-header">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <form action="">
+                                    <div class="form-group-sm has-feedback">
+                                        <label for="search" class="sr-only">Search</label>
+                                        <input type="text" class="form-control" name="search" id="search" placeholder="search" ng-model="keyword" ng-change="displayGT(0)">
+                                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="pull-right">
+                                    <select ng-model="valueFilter" ng-change="filter(0)" class="btn btn-default btn-sm">
+                                        <option value="">Lọc theo trạng thái</option>
+                                        <option value="true">hoàn thành</option>
+                                        <option value="false">chưa hoàn thành</option>
+                                    </select>
+                                    <button type="button" class="btn btn-sm btn-default" ui-sref="themhangmuc({idDuAn:ThongTinDuAn.ID,LoaiHM:0})"><i class="fa fa-plus-circle"></i></button>
+                                    <button type="button" data-toggle="collapse" data-target="#duan" class="btn btn-sm btn-default "> <i class="fa fa-info-circle" aria-hidden="true"></i></button>
+                                    <button type="button" class="btn  btn-sm btn-default btn_delall" ng-click="deleteAll(0)"  disable><i class="fa fa-trash"></i></button>
+                                    <button type="button" class="btn btn-sm btn-default" ui-sref="bin({idDuAn :ThongTinDuAn.ID , LoaiHM :0})"> <i class="fa fa-recycle" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">
+                                            <div class="hm checkbox">
+                                                <label>
+                                                    <input type="checkbox" ng-click="selectAllTT()">
+                                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <th data-toggle="tooltip" title="hạng mục công việc">Hạng Mục CV</th>
+                                        <th data-toggle="tooltip" title=""><i class="fa fa-check text-success" data-toggle="tooltip" title="Trạng thái"></i></th>
+                                        <th data-toggle="tooltip" title=""><i class="fa fa-trash " data-toggle="tooltip" title="xóa hạng mục"></i></th>
+                                        <th data-toggle="tooltip" title="nhóm công việc">NCV</th>
+                                        <th data-toggle="tooltip" title="mức độ truyền thông">MDTT</th>
+                                        <th data-toggle="tooltip" title="thời gian thực hiện">Thực hiện</th>
+                                        <th data-toggle="tooltip" title="thời gian yêu câu hoàn thành">Yêu cầu HT</th>
+                                        <th data-toggle="tooltip" title="người thực hiện theo lệnh sản xuất">Người THTLSX</th>
+                                        <th data-toggle="tooltip" title="người thực hiện thực tế">Người THTLTT</th>
+                                        <th data-toggle="tooltip" title="tỷ lệ tham gia">Tỷ lệ</th>
+                                        <th data-toggle="tooltip" title="điểm thành viên">Điểm</th>
+                                        <th data-toggle="tooltip" title="thu nhập cá nhân (vnđ)">Thu nhập</th>
+                                        <th data-toggle="tooltip" title="hệ số lặp lại">Hệ số LL</th>
+                                        <th data-toggle="tooltip" title="hệ số công việc kcv">Hệ số CVKCV</th>
+                                        <th data-toggle="tooltip" title="số người thực hiện">Số người TT</th>
+                                        <th data-toggle="tooltip" title="hệ số nhân công knc">Hệ số NCKNC</th>
+                                        <th data-toggle="tooltip" title="thời gian thực hiện dự kiến">TGTHDK (ngày) </th>
+                                        <th data-toggle="tooltip" title="hệ số thời gian">Hệ số TGKTG</th>
+                                        <th data-toggle="tooltip" title="điểm đánh giá">Điểm DG</th>
+                                        <th data-toggle="tooltip" title="điểm hạng mục công việc">Điểm HMCV</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="itemTT in HangMucDuAnTT">
+                                        <td>
+                                            <div class="hm checkbox">
+                                                <label>
+                                                    <input type="checkbox" ng-model="itemTT.checked">
+                                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td><a ui-sref="hm_edit({IdHangMuc:itemTT.ID ,LoaiHM:0})">{{itemTT.TenHangMuc}}</a></td>
+                                        <td ng-if="itemTT.TrangThai==true" class="text-center">
+                                            <i class="fa fa-check text-success" data-toggle="tooltip" title="Hoàn thành" ng-click="upadteStatus(itemTT.ID ,false,0)"></i>
+                                        </td>
+                                        <td ng-if="itemTT.TrangThai==false" class="text-center">
+                                            <i class="fa fa-times-circle text-red" data-toggle="tooltip" title="Chưa hoàn thành" ng-click="upadteStatus(itemTT.ID ,true,0)"></i>
+                                        </td>
+                                        <td><i class="fa fa-trash-o text-danger" ng-click="movebin(itemTT.ID , 0)"></i></td>
+                                        <td>{{itemTT.NhomCongViec.NhomCV}}</td>
+                                        <td>{{itemTT.HeSoLap.SoNam}}</td>
+                                        <td>{{itemTT.NgayBatDau | date:'dd/MM/yyyy'}}</td>
+                                        <td ng-class="{'date_now':checkDate(itemTT.NgayHoanThanh ,itemTT.TrangThai )==1 , 'date_expired':checkDate(itemTT.NgayHoanThanh ,itemTT.TrangThai)==-1 ,'date_succsess':checkDate(itemTT.NgayHoanThanh ,itemTT.TrangThai)==0}">{{itemTT.NgayHoanThanh |date:'dd/MM/yyyy'}}</td>
+                                        <td>{{itemTT.ApplicationUser.FullName}}</td>
+                                        <td><span ng-repeat="thamgia in itemTT.ThamGia"> {{thamgia.ApplicationUser.FullName}}<br /> </span></td>
+                                        <td><span ng-repeat="thamgia in itemTT.ThamGia">{{ thamgia.HeSoThamGia }}% <br /></span></td>
+                                        <td><span ng-repeat="thamgia in itemTT.ThamGia">{{thamgia.DiemThanhVien | number:0}} <br /></span></td>
+                                        <td><span ng-repeat="thamgia in itemTT.ThamGia">{{thamgia.ThuNhap | number }} <sup> đ</sup> <br /></span></td>
+                                        <td>{{itemTT.HeSoLap.Hesl}}</td>
+                                        <td>{{itemTT.NhomCongViec.HeSoCV}}</td>
+                                        <td>{{itemTT.SoNguoiThucHien}}</td>
+                                        <td>{{itemTT.HesoKcn}}</td>
+                                        <td>{{itemTT.HeSoTg.ThoiGianDk}}</td>
+                                        <td>{{itemTT.HeSoTg.HeSoTgdk}}</td>
+                                        <td>{{itemTT.DiemDanhGia}}</td>
+                                        <td>{{itemTT.DiemHM | number }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </section>
+            </md-content>
+        </md-tab>
+        <md-tab label="hạng mục dự án gián tiếp" ng-click="displayGT(1)">
+            <md-content class="md-padding">
+                <div id="duangt" class="collapse">
+                    <div class="box box-solid">
+                        <div class="box-body clearfix">
+                            <div class="col-md-7">
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <b>Tên Dự án:</b> <a class="pull-right">{{ThongTinDuAn.TenDuAn}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Tên khách hàng</b> <a class="pull-right">{{ThongTinDuAn.KhachHang.TenKhach}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Giá trị hợp đồng trước VAT</b> <a class="pull-right">{{ThongTinDuAn.GiaTriHopDong | number}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Số ngày thực hiện theo HĐ:</b> <a class="pull-right">{{ThongTinDuAn.SoNgayThucHien}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Số ngày thực hiện thực tế</b> <a class="pull-right">..</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Số HĐ</b> <a class="pull-right">{{ThongTinDuAn.SoHopDong}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Ngày ký HĐ</b> <a class="pull-right">{{ThongTinDuAn.NgayKy | date:'dd/MM/yyyy'}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3">
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <b>Loại công trình</b> <a class="pull-right"> {{ThongTinDuAn.LoaiCongTrinh}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Tỷ lệ theo DT</b> <a class="pull-right">{{ThongTinDuAn.TyLeTheoDT}} %</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Lương Thuê ngoài</b> <a class="pull-right" ng-if="ThongTinDuAn.LuongThueNgoai != null">{{ThongTinDuAn.LuongThueNgoai}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Tổng chi lương QL</b> <a class="pull-right">{{ThongTinDuAn.TongChiQL}} %</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Lương gián tiếp Qgt</b> <a class="pull-right">{{ThongTinDuAn.LuongGTQgt}} %</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Lương gián tiếp V2.1</b> <a class="pull-right">{{ThongTinDuAn.LuongGTV21}} %</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Lương gián tiếp V2.2</b> <a class="pull-right">{{ThongTinDuAn.LuongGTV22}} %</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-2">
+                                <ul class="list-group list-group-unbordered">
+                                    <li class="list-group-item">
+                                        <a class="text-center">...</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a class="text-center">{{I = (ThongTinDuAn.GiaTriHopDong * ThongTinDuAn.TyLeTheoDT)/100 | number}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a class="text-center">...</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>QL</b> <a class="pull-right">{{ QL1= I - ThongTinDuAn.LuongThueNgoai}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>QL</b> <a class="pull-right">{{ QL2 = (QL1 * ThongTinDuAn.LuongGTQgt)/100 | number}} </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Qgt</b> <a class="pull-right">{{(QL2* ThongTinDuAn.LuongGTV21)/100 | number}}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Qgt</b> <a class="pull-right">{{Total =  (QL2* ThongTinDuAn.LuongGTV22)/100 | number}}</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+
+                </div>
+
+                <section class="invoice">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-4">
+                                <form action="" class="search-form">
+                                    <div class="form-group-sm has-feedback">
+                                        <label for="search" class="sr-only">Search</label>
+                                        <input type="text" class="form-control" name="search" id="search" placeholder="search" ng-change="LoaiHangMucDaTt(1,page)" ng-model="keyword">
+                                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="pull-right">
+                                    <select class="btn btn-sm btn-default " ng-model="valueFilter" ng-change="filter(1)">
+                                        <option value="">Lọc theo trạng thái</option>
+                                        <option value="true">hoàn thành</option>
+                                        <option value="false">chưa hoàn thành</option>
+                                    </select>
+                                    <button class="btn btn-sm  btn-default" ui-sref="themhangmuc({idDuAn:ThongTinDuAn.ID,LoaiHM:1})"><i class="fa fa-plus-circle"></i></button>
+                                    <button data-toggle="collapse" data-target="#duangt" class="btn btn-sm  btn-default"> <i class="fa fa-info-circle" aria-hidden="true"></i></button>
+                                    <button class="btn btn-sm  btn-default btn_delall" ng-click="deleteAll(1)" disabled><i class="fa fa-trash"></i></button>
+                                    <button type="button" class="btn btn-sm btn-default" ui-sref="bin({idDuAn :ThongTinDuAn.ID , LoaiHM :1})"><i class="fa fa-recycle" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 10px">
+                                            <div class="hm checkbox">
+                                                <label>
+                                                    <input type="checkbox" ng-click="selectAllGT()">
+                                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                </label>
+                                            </div>
+                                        </th>
+                                        <th data-toggle="tooltip" title="hạng mục công việc">Hạng Mục CV</th>
+                                        <th><i class="fa fa-check text-success" data-toggle="tooltip" title="trạng thái"></i></th>
+                                        <th data-toggle="tooltip" title=""><i class="fa fa-trash " data-toggle="tooltip" title="xóa hạng mục"></i></th>
+                                        <th data-toggle="tooltip" title="nhóm công việc">NCV</th>
+                                        <th data-toggle="tooltip" title="mức độ truyền thông">MDTT</th>
+                                        <th data-toggle="tooltip" title="thời gian thực hiện">Thực hiện</th>
+                                        <th data-toggle="tooltip" title="thời gian yêu câu hoàn thành">Yêu cầu HT</th>
+                                        <th data-toggle="tooltip" title="người thực hiện theo lệnh sản xuất">Người THTLSX</th>
+                                        <th data-toggle="tooltip" title="người thực hiện thực tế">Người THTLTT</th>
+                                        <th data-toggle="tooltip" title="tỷ lệ tham gia">Tỷ lệ</th>
+                                        <th data-toggle="tooltip" title="điểm thành viên">Điểm</th>
+                                        <th data-toggle="tooltip" title="thu nhập cá nhân (vnđ)">Thu nhập</th>
+                                        <th data-toggle="tooltip" title="hệ số lặp lại">Hệ số LL</th>
+                                        <th data-toggle="tooltip" title="hệ số công việc kcv">Hệ số CVKCV</th>
+                                        <th data-toggle="tooltip" title="số người thực hiện">Số người TT</th>
+                                        <th data-toggle="tooltip" title="hệ số nhân công knc">Hệ số NCKNC</th>
+                                        <th data-toggle="tooltip" title="thời gian thực hiện dự kiến">TGTHDK (ngày) </th>
+                                        <th data-toggle="tooltip" title="hệ số thời gian">Hệ số TGKTG</th>
+                                        <th data-toggle="tooltip" title="điểm đánh giá">Điểm DG</th>
+                                        <th data-toggle="tooltip" title="điểm hạng mục công việc">Điểm HMCV</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="itemGt in HangMucDuAnGt">
+                                        <td>
+                                            <div class="hm checkbox">
+                                                <label>
+                                                    <input type="checkbox" ng-model="itemGt.checked" value="{{itemGt.ID}}">
+                                                    <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td><a ui-sref="hm_edit({IdHangMuc:itemGt.ID,LoaiHM:1})">{{itemGt.TenHangMuc}}</a></td>
+                                        <td ng-if="itemGt.TrangThai==true" class="text-center">
+                                            <i class="fa fa-check text-success" data-toggle="tooltip" title="Hoàn thành" ng-click="upadteStatus(itemGt.ID ,false,1)"></i>
+                                        </td>
+                                        <td ng-if="itemGt.TrangThai==false" class="text-center">
+                                            <i class="fa fa-times-circle text-red" data-toggle="tooltip" title="Chưa hoàn thành" ng-click="upadteStatus(itemGt.ID ,true,1)"></i>
+                                        </td>
+                                        <td><i class="fa fa-trash-o text-danger" ng-click="movebin(itemGt.ID , 1)"></i></td>
+                                        <td>{{itemGt.NhomCongViec.NhomCV}}</td>
+                                        <td>{{itemGt.HeSoLap.SoNam}}</td>
+                                        <td>{{itemGt.NgayBatDau | date:'dd/MM/yyyy'}}</td>
+                                        <td ng-class="{'date_now':checkDate(itemGt.NgayHoanThanh ,itemGt.TrangThai )==1 , 'date_expired':checkDate(itemGt.NgayHoanThanh ,itemGt.TrangThai)==-1 ,'date_succsess':checkDate(itemGt.NgayHoanThanh ,itemGt.TrangThai)==0 }">{{itemGt.NgayHoanThanh | date:'dd/MM/yyyy'}}</td>
+                                        <td>{{itemGt.ApplicationUser.FullName}} {{total}}</td>
+                                        <td><span ng-repeat="thamgia in itemGt.ThamGia"> {{thamgia.ApplicationUser.FullName}}<br /> </span></td>
+                                        <td><span ng-repeat="thamgia in itemGt.ThamGia">{{ thamgia.HeSoThamGia }} % <br /></span></td>
+                                        <td><span ng-repeat="thamgia in itemGt.ThamGia">{{thamgia.DiemThanhVien | number}} <br /></span></td>
+                                        <td><span ng-repeat="thamgia in itemGt.ThamGia">{{thamgia.ThuNhap| number }} <br /></span></td>
+                                        <td>{{itemGt.HeSoLap.Hesl}}</td>
+                                        <td>{{itemGt.NhomCongViec.HeSoCV}}</td>
+                                        <td>{{itemGt.SoNguoiThucHien}}</td>
+                                        <td>{{itemGt.HesoKcn}}</td>
+                                        <td>{{itemGt.HeSoTg.ThoiGianDk}}</td>
+                                        <td>{{itemGt.HeSoTg.HeSoTgdk}}</td>
+                                        <td>{{itemGt.DiemDanhGia}}</td>
+                                        <td>{{itemGt.DiemHM | number }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </md-content>
+        </md-tab>
+    </md-tabs>
+    <div class="row">
+        <div class="col-md-12" id="row_note">
+            <div class="col-md-5">
+                <div class="note note_expr" data-toggle="tooltip" title="Hạng mục công việc đã quá hạn"></div>
+                <div class="note note_success" data-toggle="tooltip" title="Hạng mục công việc đã hoàn thành"></div>
+                <div class="note note_warning" data-toggle="tooltip" title="Hạng mục công việc trong ngày"></div>
+            </div>
+            <div ng-if="isActive==0" class="col-md-7">
+                <div class="col-md-5">
+                    <p>Tổng điểm <a>{{ThongTinDuAn.TongDiemTT | number}}</a> :: Đơn giá điểm <a>{{ThongTinDuAn.DonGiaDiemTT | number}} <sup>đ</sup></a> :: {{totalCount}} hạng mục </p>
+
+                </div>
+                <div class="col-md-7">
+                    <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="LoaiHangMucDaTt(0,page)"></pager-directive>
+
+                </div>
+            </div>
+            <div ng-if="isActive==1" class="col-md-7">
+                <div class="col-md-5">
+                    <p>Tổng điểm <a>{{ThongTinDuAn.TongDiemGT | number}}</a> :: Đơn giá điểm <a>{{ThongTinDuAn.DonGiaDiemGT | number}} <sup>đ</sup></a>  :: {{totalCount}} hạng mục</p>
+                </div>
+                <div class="col-md-7">
+                    <pager-directive page="{{page}}" custom-path="{{customPath}}" pages-count="{{pagesCount}}" total-count="{{totalCount}}" search-func="LoaiHangMucDaTt(1,page)"></pager-directive>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<aside id="right-sidebar-nav">
+    <div class="panel panel-info">
+        <div class="panel-heading" style="background-color:#11A799">
+            <h3 class="panel-title text-center"><strong class="text-capitalize">ASO </strong> Doanh thu nhân viên theo dự án</h3>
+            <button ng-click="totalPoint()" class="pull-right btn btn-xs"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+        <div class="panel-body">
+            <div class="sk-fading-circle" ng-if="loaddingbar">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>
+            <section class="box_direct">
+                <h3 class="module__heading module__heading--a">Doanh thu dự án trực tiếp <span class="pull-right label label-warning"> {{incomeDirect.length}} nhân viên</span></h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Họ và tên</th>
+                            <th>Tổng điểm</th>
+                            <th>$ (vnđ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in incomeDirect">
+                            <td>{{item.ApplicationUser.FullName}}</td>
+                            <td>{{item.DiemThanhVien | number}}</td>
+                            <td>{{item.ThuNhap | number}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="box_indirect">
+                <h3 class="module__heading module__heading--a">Doanh thu dự án gián tiếp <span class="pull-right label label-warning">{{incomeIndirect.length}} nhân viên</span></h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Họ và tên</th>
+                            <th>Tổng điểm</th>
+                            <th>$ (vnđ)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in incomeIndirect">
+                            <td>{{item.ApplicationUser.FullName}}</td>
+                            <td>{{item.DiemThanhVien | number}}</td>
+                            <td>{{item.ThuNhap | number}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+        <div class="panel-footer">
+            công ty  cổ phần cơ điện aso
+        </div>
+    </div>
+</aside>
+<div class="sk-fading-circle" ng-if="loadding">
+    <div class="sk-circle1 sk-circle"></div>
+    <div class="sk-circle2 sk-circle"></div>
+    <div class="sk-circle3 sk-circle"></div>
+    <div class="sk-circle4 sk-circle"></div>
+    <div class="sk-circle5 sk-circle"></div>
+    <div class="sk-circle6 sk-circle"></div>
+    <div class="sk-circle7 sk-circle"></div>
+    <div class="sk-circle8 sk-circle"></div>
+    <div class="sk-circle9 sk-circle"></div>
+    <div class="sk-circle10 sk-circle"></div>
+    <div class="sk-circle11 sk-circle"></div>
+    <div class="sk-circle12 sk-circle"></div>
+</div>

@@ -1,0 +1,15 @@
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.InitAlBD.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.changeLoaiHM.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.addNhanVienDuAnTb.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.addFgK.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.deleteTbNvDa.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.addColumnDtv.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.addColumnDuAnTb.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.changeGiaTriHd.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.addColumnThuNhapTGTb.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.RemoveHopDongTable.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.changHangMucTB.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.Migrations.addColumnIsdelete.resources
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\Dự án\QUANLYDA\QUANLYDUAN_DATN-master\QUANLYDUAN_DATN_05022017\QLDuAn.Data\obj\Debug\QLDuAn.Data.csproj.CoreCompileInputs.cache

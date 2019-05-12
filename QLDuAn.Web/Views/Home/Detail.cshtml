@@ -1,0 +1,34 @@
+﻿@model QLDuAn.Web.Models.ThongBaoViewModel
+@{
+    Layout = null;
+}
+@{
+    ViewBag.Title = "chi tiết thông báo";
+    Layout = "~/Views/Shared/_LayoutHome.cshtml";
+}
+
+<h5 class="page-title">
+   Chi tiết thông báo
+</h5>
+ <div class="box">
+                    <div class="box-header">
+                        <div class="box-title">
+                          <h3>@Model.TieuDe</h3>
+                          <p> Nội dung : <br /> @Model.NoiDung </p>
+                         <p> Tệp đính kèm <br />
+                            @{ 
+                                foreach (var item in ViewBag.ListFile)
+                                {
+                                    var url = @item.path;
+                                    <span><a href="@url">@item.name </a></span>
+             
+                                }
+                            }
+                            
+                         <p class="pull-right"> @Model.Created_at </p>
+                        
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+
